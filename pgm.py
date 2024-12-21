@@ -94,7 +94,7 @@ def build_model():
 model = build_model()
 
 # Checkpoint to save best model
-checkpoint = ModelCheckpoint('best_model.keras', monitor='val_accuracy', save_best_only=True, mode='max', verbose=1)
+checkpoint = ModelCheckpoint(r'C:\Users\Jayasairamsuji\Desktop\Mini_project-main\best_model.keras', monitor='val_accuracy', save_best_only=True, mode='max', verbose=1)
 
 # Generator Setup
 train_gen = video_generator(dataset_path, BATCH_SIZE, FRAMES, IMG_SIZE)
@@ -103,7 +103,7 @@ steps_per_epoch = 75 // BATCH_SIZE
 # Model Training
 history = model.fit(train_gen, steps_per_epoch=steps_per_epoch, epochs=EPOCHS, callbacks=[checkpoint])
 
-# Evaluate Model
-best_model = tf.keras.models.load_model('best_model.keras')
-loss, accuracy = best_model.evaluate(train_gen, steps=steps_per_epoch)
-print(f'Test Loss: {loss}, Test Accuracy: {accuracy}')
+# # Evaluate Model
+# best_model = tf.keras.models.load_model('best_model.keras')
+# loss, accuracy = best_model.evaluate(train_gen, steps=steps_per_epoch)
+# print(f'Test Loss: {loss}, Test Accuracy: {accuracy}')
